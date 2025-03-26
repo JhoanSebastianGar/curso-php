@@ -48,5 +48,22 @@
 </table>
 	</div>
 
+	<div class="container-fluid">
+<form class="row g-3" action="Guardar();" id="frmIngresar" name="frmIngresar">
+	<input type="hidden" class="form-control" id="id" value="" required>
+  <div class="col-md-4">
+    <label for="validationDefault01" class="form-label">Nombre</label>
+    <input type="text" class="form-control" id="nombre" name="nombre" value="Mark" required>
+  </div>
+  <div class="col-md-4">
+    <label for="validationDefault02" class="form-label">Email</label>
+    <input type="email" class="form-control" id="email" name="email" value="Otto" required>
+  </div>
+
+  <div class="col-12">
+    <button class="btn btn-primary" type="submit">Submit form</button>
+  </div>
+</form>
+</div>
 </body>
 </html>

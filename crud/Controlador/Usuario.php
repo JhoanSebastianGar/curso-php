@@ -17,10 +17,14 @@ class UsuarioController {
             header("Location: listar.php");
         }
     }
-
-    public function listar() {
-        return $this->usuario->listar();
-    }
+    
+        public function listar() {
+        if($_POST["Action"]=="Listar"){
+              //return $this->usuario->listar();
+              return "hola";
+        }
+        }
+    
 
     public function actualizar() {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
