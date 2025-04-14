@@ -4,25 +4,21 @@ require_once '../Modelo/Usuario.php';
 
 class UsuarioController {
     private $usuario;
-
-    public function __construct($pdo) {
+        public function __construct($pdo) {
         $this->usuario = new Usuario($pdo);
     }
 
-    public function crear() {
+    public function crear($data) {
+        
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $nombre = $_POST['nombre'];
-            $email = $_POST['email'];
-            $this->usuario->crear($nombre, $email);
-            header("Location: listar.php");
+            $nombre = $data['nombre'];
+            $email = $data['email'];
+            return $this->usuario->crear($nombre, $email);
         }
     }
     
         public function listar() {
-        if($_POST["Action"]=="Listar"){
-              //return $this->usuario->listar();
-              return "hola";
-        }
+             return print(json_encode($this->usuario->listar()));
         }
     
 
@@ -36,9 +32,15 @@ class UsuarioController {
         }
     }
 
-    public function eliminar($id) {
+    public function eliminar($data) {
+        $id = $data['id'];
         $this->usuario->eliminar($id);
-        header("Location: listar.php");
+        //header("Location: listar.php");
     }
 }
+$data=json_decode(file_get_contents('php://input'), true);
+$action=$_GET["Action"];
+$usuario= new UsuarioController($pdo);
+$usuario->$action($data);
+
 ?>

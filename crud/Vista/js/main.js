@@ -278,23 +278,6 @@ function formatCurrency(number) {
     return (neg ? "➖💲" : '💲') + parseFloat(number, 10).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,").toString();
 }
 
-onload(() => {
-    if (SELECTOR('form') != null) {
-        for (const element in SELECTOR('form').elements) {
-            if (Object.hasOwnProperty.call(SELECTOR('form').elements, element)) {
-                var form = SELECTOR('form').id;
-                var form = form.slice(3);
-                SELECTOR('#btn' + form + '').addEventListener("click", () => {
-                    validate(element);
-                });
-
-                SELECTOR('form').elements[element].addEventListener("focusout", () => {
-                    validate(element);
-                });
-            }
-        }
-    }
-});
 
 function validate(element) {
     if (isNaN(element)) {

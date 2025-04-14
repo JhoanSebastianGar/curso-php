@@ -6,7 +6,7 @@
 		<img src="<?=$poster_url; ?>" width="200" alt="POSTER DE <?=$title; ?>">
 	</section>
 	<hgroup>
-		<h2><?=$title; ?> <?=$untilMessage ?> dias</h2>
+		<h2><?=$title; ?> <?=$untilMessage; ?> dias</h2>
 		<p>fecha de estreno <?=$release_date; ?></p>
 		<p>la siguiente es <?=$following_production; ?></p>
 	</hgroup>

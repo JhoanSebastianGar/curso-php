@@ -14,8 +14,10 @@ class Usuario {
 
     public function listar() {
         $sql = "SELECT * FROM usuarios";
-        $stmt = $this->pdo->query($sql);
-        return "hola";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute();
+        $resultado=$stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $resultado;
     }
 
     public function actualizar($id, $nombre, $email) {
